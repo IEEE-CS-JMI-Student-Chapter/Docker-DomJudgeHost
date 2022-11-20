@@ -1,0 +1,12 @@
+version: '3.4'
+services:
+    judgehost:
+#        build: ./judgehost
+        image: domjudge/judgehost:latest #Needs manual build through build.sh in ./judgehost
+        volumes:
+            - /sys/fs/cgroup:/sys/fs/cgroup:ro
+        privileged: true
+        hostname: judgehost
+        env_file:
+            - judgehost.env
+        
